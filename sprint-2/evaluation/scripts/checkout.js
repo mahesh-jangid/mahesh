@@ -11,8 +11,8 @@ buy_btn.addEventListener("click", function () {
   }, 9000);
   setTimeout(function () {
     alert("Order out for delivery ");
-  }, 12000);
+  }, 10000);
   setTimeout(function () {
     alert("Order delivered");
-  }, 18000);
+  }, 14000);
 });
