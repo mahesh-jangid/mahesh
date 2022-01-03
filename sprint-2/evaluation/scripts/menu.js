@@ -62,10 +62,7 @@ function displayfood(data) {
 function totalCartitem() {
   var total_cart_item = cart.length;
   total_DOM.textContent = total_cart_item;
-  var totalCartData = localStorage.setItem(
-    "totalCartItemCount",
-    JSON.stringify(total_cart_item)
-  );
+  localStorage.setItem("totalCartItemCount", JSON.stringify(total_cart_item));
 }
 
 var Cart_btn = document.querySelector(".fa-shopping-cart");

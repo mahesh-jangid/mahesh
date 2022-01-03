@@ -1,4 +1,5 @@
 var cart_prod = JSON.parse(localStorage.getItem("cartItems")) || [];
+
 var total_amt = document.querySelector(".total");
 var total_amount = [];
 displayCartProduct(cart_prod);
@@ -29,11 +30,11 @@ function displayCartProduct(cart_prod) {
     total_amount.push(Number(elem.price));
     showTotal();
 
-    let remove_btn = product_main.querySelectorAll(".remove_btn");
+    let remove_btn = single_product.querySelectorAll(".remove_btn");
     remove_btn.forEach(function (btn) {
-      btn.addEventListener("click", function (e) {
+      btn.addEventListener("click", function () {
         deleteItem(ind);
-        // showTotal();
+        showTotal();
       });
     });
   });
@@ -55,6 +56,6 @@ function deleteItem(ind) {
   cart_prod.splice(ind, 1);
   console.log(cart_prod);
   localStorage.setItem("cartItems", JSON.stringify(cart_prod));
-  // displayCartProduct(cart_prod);
-  showTotal();
+  window.location = "cart.html";
+  displayCartProduct();
 }
