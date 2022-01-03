@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="stylesheet" href="./style/menu.css" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* font-family: "Shippori Antique"; */
+        font-family: "Inter", sans-serif;
+      }
+      .nav {
+        width: 100%;
+        height: 90px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: rgb(0, 0, 0);
+      }
+      .nav .logo h2 {
+        letter-spacing: 3px;
+        color: lightseagreen;
+      }
+
+      .nav_link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10%;
+      }
+      .nav_link ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        /* width: 60%; */
+      }
+      .nav_link ul li {
+        list-style-type: none;
+        margin: 0 31px;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: bold;
+        color: rgb(238, 229, 229);
+      }
+      .nav_link ul li:nth-child(5) {
+        position: relative;
+        color: lightseagreen;
+      }
+      .nav_link ul li:nth-child(5) i {
+        font-size: 30px;
+      }
+      .nav_link ul li:nth-child(5) span {
+        position: absolute;
+        top: -15px;
+        left: 23px;
+        display: grid;
+        place-content: center;
+        width: 24px;
+        height: 25px;
+        background-color: rgb(255, 0, 0);
+        color: white;
+        border-radius: 50%;
+      }
+      .nav .nav_link button {
+        background-color: lightseagreen;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px 32px;
+        font-size: 17px;
+      }
+
+      /* ---------------product section ----------------- */
+      .product_main_container {
+        width: 90%;
+        margin: auto;
+        min-height: 100vh;
+      }
+      .product_main_container .title {
+        font-size: 3rem;
+        color: lightseagreen;
+        letter-spacing: 0.3rem;
+        text-transform: capitalize;
+        margin-bottom: 5rem;
+        font-weight: 600;
+        text-align: center;
+      }
+      .product_main_container .product_main_info {
+        width: 90%;
+        max-width: 1174px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        /* grid-template-rows: 359px; */
+        grid-column-gap: 1.55rem;
+        grid-row-gap: 2rem;
+      }
+      .product_main_container .product_main_info .product {
+        border: 1px solid rgb(221, 215, 215);
+        position: relative;
+        overflow: hidden;
+      }
+      .product_main_container .product_main_info .product .product_image {
+        overflow: hidden;
+        object-fit: cover;
+        width: 100%;
+        height: 78%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .product_main_container .product_main_info .product .product_image img {
+        display: block;
+        min-width: 100%;
+        max-height: 100%;
+      }
+      .product_main_container .product_main_info .product .product_info {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+        border-top: 1px solid gray;
+        padding: 13px 0;
+      }
+      .product_main_container .product_main_info .product .product_info h3 {
+        font-size: 20px;
+        color: rgb(21, 90, 87);
+      }
+      .product_main_container
+        .product_main_info
+        .product
+        .product_info
+        h3:nth-child(2) {
+        color: crimson;
+      }
+
+      .product_main_container .product_main_info .product .add_cart_btn {
+        position: absolute;
+        right: 1px;
+        bottom: 78px;
+        transform: translateX(-440%) rotateZ(90deg);
+        transition: transform 0.6s ease-in-out;
+      }
+      .product_main_container .product_main_info .product:hover .add_cart_btn {
+        transform: translateX(0%) rotateZ(0deg);
+      }
+      .product_main_container .product_main_info .product .add_cart_btn button {
+        padding: 9px 19px;
+        color: seashell;
+        font-size: 16px;
+        background-color: lightseagreen;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .filter_con {
+        margin: 38px 86px;
+      }
+      .filter_con #filter {
+        width: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="logo">
+        <h2>CherSell</h2>
+      </div>
+      <div class="nav_link">
+        <ul>
+          <li>Home</li>
+          <li>Services</li>
+          <li>About</li>
+          <li>Product</li>
+          <li>
+            <i
+              class="fas fa-shopping-cart"
+              onclick="this.location = cart.html"
+            ></i
+            ><span class="total_item">0</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product_main_container">
+      <h2 class="title">Our Product</h2>
+      <div class="filter_con">
+        <select name="filter" id="filter" onchange="handlepricesort()">
+          <option value="">Choose</option>
+          <option value="low">Low To Higher</option>
+          <option value="high">Higher To Low</option>
+        </select>
+      </div>
+      <div class="product_main_info"></div>
+    </div>
+  </body>
+  <script>
+    getfood();
+
+    async function getfood() {
+      let url = "https://www.themealdb.com/api/json/v1/1/categories.php";
+      let res = await fetch(url);
+
+      let data = await res.json();
+      let response = await data.categories;
+
+      console.log(response);
+      displayfood(response);
+    }
+
+    function displayfood(data) {
+      data.map(function (elem) {
+        var product_main = document.querySelector(".product_main_info");
+        // product_main.textContent = "";
+        var single_product = document.createElement("div");
+        single_product.classList.add("product");
+
+        var img_wrapper_div = document.createElement("div");
+        img_wrapper_div.classList.add("product_image");
+        var img_div = document.createElement("img");
+        img_div.src = elem.strCategoryThumb;
+        img_wrapper_div.append(img_div);
+
+        var product_info = document.createElement("div");
+        product_info.classList.add("product_info");
+        var product_name = document.createElement("h3");
+        product_name.classList.add("product_name");
+        product_name.textContent = elem.strCategory;
+        var product_price = document.createElement("h3");
+        product_price.classList.add("product_price");
+        elem.price = Math.round(Math.random() * 500);
+        product_price.innerHTML = `Rs ${elem.price}`;
+
+        product_info.append(product_name, product_price);
+
+        var add_cart_btn = document.createElement("div");
+        add_cart_btn.classList.add("add_cart_btn");
+        var button = document.createElement("button");
+        button.textContent = "Add To Cart";
+        add_cart_btn.append(button);
+        add_cart_btn.addEventListener("click", function () {
+          // console.log(pertprod);
+          addToCart(elem);
+        });
+
+        single_product.append(img_wrapper_div, product_info, add_cart_btn);
+        product_main.append(single_product);
+      });
+    }
+    // var displayAddedProd = JSON.parse(localStorage.getItem("shoppingItems"));
+
+    var cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    var total_DOM = document.querySelector(".total_item");
+
+    var getCartTotal = JSON.parse(localStorage.getItem("totalCartItemCount"));
+    totalCartitem();
+
+    // /////////// For Total item count Cart ///////////////
+    function totalCartitem() {
+      var total_cart_item = cart.length;
+      total_DOM.textContent = total_cart_item;
+      var totalCartData = localStorage.setItem(
+        "totalCartItemCount",
+        JSON.stringify(total_cart_item)
+      );
+    }
+
+    var Cart_btn = document.querySelector(".fa-shopping-cart");
+    Cart_btn.addEventListener("click", function () {
+      window.location.href = "cart.html";
+    });
+
+    function addToCart(prod) {
+      cart.push(prod);
+      // window.location.href = "cart.html";
+      localStorage.setItem("cartItems", JSON.stringify(cart));
+      totalCartitem();
+    }
+
+    // function handlepricesort() {
+    //   var selected = document.querySelector("#filter").value;
+    //   var sorted = JSON.parse(localStorage.getItem("shoppingItems"));
+
+    //   if (selected === "low") {
+    //     displayAddedProd.sort(function (a, b) {
+    //       return Number(a.product_price) - Number(b.product_price);
+    //     });
+    //   }
+    //   if (selected === "high") {
+    //     displayAddedProd.sort(function (a, b) {
+    //       return Number(b.product_price) - Number(a.product_price);
+    //       // displayProduct(displayAddedProd);
+    //     });
+    //   }
+    //   console.log(displayAddedProd);
+    //   localStorage.setItem("shoppingItems", JSON.stringify(displayAddedProd));
+    //   displayProduct(displayAddedProd);
+    // }
+  </script>
+</html>
